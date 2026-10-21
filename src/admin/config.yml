@@ -3,10 +3,10 @@
 # ---------------------------------------------------------------
 backend:
   name: github
-  repo: YOUR-CLUB-ORG/club-site          # <-- change to your GitHub org/repo
+  repo: samlashley/club-test-site          # <-- change to your GitHub org/repo
   branch: main
   auth_scope: public_repo                 # token can only touch PUBLIC repos (use `repo` if this repo is private)
-  base_url: https://decap-oauth.YOUR-SUBDOMAIN.workers.dev   # <-- your OAuth Worker URL
+  base_url: https://decap-oauth.samlashley42.workers.dev   # <-- your OAuth Worker URL
 
 # Lets you test /admin locally without GitHub (run `npm run cms` + `npm run dev`)
 local_backend: true
