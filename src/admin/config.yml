@@ -1,0 +1,82 @@
+# ---------------------------------------------------------------
+# Decap CMS config: defines what officers can edit at /admin
+# ---------------------------------------------------------------
+backend:
+  name: github
+  repo: YOUR-CLUB-ORG/club-site          # <-- change to your GitHub org/repo
+  branch: main
+  auth_scope: public_repo                 # token can only touch PUBLIC repos (use `repo` if this repo is private)
+  base_url: https://decap-oauth.YOUR-SUBDOMAIN.workers.dev   # <-- your OAuth Worker URL
+
+# Lets you test /admin locally without GitHub (run `npm run cms` + `npm run dev`)
+local_backend: true
+
+# Uncomment for drafts + review before publishing (each draft gets a preview URL)
+# publish_mode: editorial_workflow
+
+media_folder: src/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: news
+    label: News
+    label_singular: Post
+    folder: src/news
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Summary (shown on cards), name: summary, widget: text }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: roster
+    label: Roster
+    label_singular: Player
+    folder: src/roster
+    create: true
+    slug: "{{name}}"
+    identifier_field: name
+    summary: "#{{number}} {{name}} ({{position}})"
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Jersey number, name: number, widget: number, value_type: int }
+      - { label: Position, name: position, widget: string }
+      - label: Year
+        name: year
+        widget: select
+        options: [Freshman, Sophomore, Junior, Senior, Grad]
+      - { label: Captain, name: captain, widget: boolean, default: false }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: Team info and links
+        file: src/_data/site.json
+        fields:
+          - { label: Team name, name: teamName, widget: string }
+          - { label: Short name (header), name: shortName, widget: string }
+          - { label: Tagline, name: tagline, widget: text }
+          - { label: Practice info, name: practiceInfo, widget: string }
+          - { label: Contact email, name: contactEmail, widget: string }
+          - { label: Instagram URL, name: instagram, widget: string }
+          - { label: Join form URL, name: joinFormUrl, widget: string }
+          - { label: Google Calendar embed URL, name: calendarEmbedUrl, widget: string, hint: "Google Calendar → Settings → Integrate calendar → Embed code (just the src URL)" }
+          - { label: Calendar subscribe (iCal) URL, name: calendarSubscribeUrl, widget: string, hint: "Public address in iCal format" }
+
+      - name: results
+        label: Game results
+        file: src/_data/results.json
+        fields:
+          - label: Games (newest first)
+            name: games
+            widget: list
+            summary: "{{fields.date}} vs {{fields.opponent}}: {{fields.us}}–{{fields.them}}"
+            fields:
+              - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: Opponent, name: opponent, widget: string }
+              - { label: Home or away, name: location, widget: select, options: [Home, Away, Neutral] }
+              - { label: Our score, name: us, widget: number, value_type: int }
+              - { label: Their score, name: them, widget: number, value_type: int }

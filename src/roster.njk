@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Roster
+permalink: /roster/
+---
+<section class="wrap section">
+  <h1>Roster</h1>
+  <ul class="roster">
+    {% for p in collections.roster | sort(false, false, "data.number") %}
+    {% include "player-card.njk" %}
+    {% endfor %}
+  </ul>
+</section>

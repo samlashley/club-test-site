@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Schedule
+permalink: /schedule/
+---
+<section class="wrap section">
+  <h1>Schedule</h1>
+  <p class="lead">Games, practices, and socials. This calendar updates automatically from the team's Google Calendar.</p>
+  <div class="calendar">
+    <iframe src="{{ site.calendarEmbedUrl }}" title="Team calendar" loading="lazy"></iframe>
+  </div>
+  <p><a class="btn ghost" href="{{ site.calendarSubscribeUrl }}">Add to my calendar</a></p>
+</section>

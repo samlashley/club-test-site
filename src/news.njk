@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: News
+permalink: /news/
+---
+<section class="wrap narrow section">
+  <h1>News</h1>
+  <div class="news-list">
+    {% for post in collections.newsSorted %}
+    <a class="card" href="{{ post.url }}">
+      <p class="eyebrow">{{ post.date | readableDate }}</p>
+      <h3>{{ post.data.title }}</h3>
+      <p>{{ post.data.summary }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>

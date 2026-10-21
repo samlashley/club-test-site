@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.teamName }}</title>
+  <meta name="description" content="{{ site.tagline }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/"><span class="crest">H</span>{{ site.shortName }}</a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+      <label for="menu-toggle" class="menu-btn" aria-hidden="true">Menu</label>
+      <nav>
+        {% set links = [["/", "Home"], ["/schedule/", "Schedule"], ["/roster/", "Roster"], ["/news/", "News"], ["/join/", "Join"]] %}
+        {% for link in links %}
+        <a href="{{ link[0] }}"{% if page.url == link[0] %} aria-current="page"{% endif %}>{{ link[1] }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <strong>{{ site.teamName }}</strong>
+        <p>{{ site.practiceInfo }}</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>
+        <a href="{{ site.instagram }}">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "teamName": "Northgate Hawks Club Rugby",
+  "shortName": "Hawks Rugby",
+  "tagline": "Club rugby for every experience level. No tryouts — just show up to practice.",
+  "practiceInfo": "Tue & Thu, 6:00–8:00 PM at the Intramural Fields",
+  "contactEmail": "club@example.com",
+  "instagram": "https://instagram.com/",
+  "joinFormUrl": "https://forms.google.com/",
+  "calendarEmbedUrl": "https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA&showTitle=0&showPrint=0&showTabs=0&showCalendars=0",
+  "calendarSubscribeUrl": "https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics"
+}

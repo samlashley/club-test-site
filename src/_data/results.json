@@ -1,0 +1,7 @@
+{
+  "games": [
+    { "date": "2026-10-18", "opponent": "Riverside State", "location": "Home", "us": 31, "them": 12 },
+    { "date": "2026-10-11", "opponent": "Lakeview College", "location": "Away", "us": 17, "them": 22 },
+    { "date": "2026-10-04", "opponent": "Pine Hill University", "location": "Home", "us": 26, "them": 26 }
+  ]
+}

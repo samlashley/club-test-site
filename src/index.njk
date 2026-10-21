@@ -1,0 +1,50 @@
+---
+layout: base.njk
+---
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Fall 2026 season</p>
+    <h1>{{ site.teamName }}</h1>
+    <p class="lead">{{ site.tagline }}</p>
+    <div class="actions">
+      <a class="btn" href="/join/">Join the team</a>
+      <a class="btn ghost" href="/schedule/">See the schedule</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Recent results</h2>
+    <a href="/schedule/">Full schedule →</a>
+  </div>
+  <ul class="results">
+    {% for g in results.games %}
+    {% if g.us > g.them %}{% set r = "W" %}{% elif g.us < g.them %}{% set r = "L" %}{% else %}{% set r = "D" %}{% endif %}
+    <li class="result">
+      <span class="badge badge-{{ r }}">{{ r }}</span>
+      <div>
+        <strong>vs {{ g.opponent }}</strong>
+        <span class="meta">{{ g.date | readableDate }} · {{ g.location }}</span>
+      </div>
+      <span class="score">{{ g.us }}–{{ g.them }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Latest news</h2>
+    <a href="/news/">All news →</a>
+  </div>
+  <div class="cards">
+    {% for post in collections.newsSorted | head(2) %}
+    <a class="card" href="{{ post.url }}">
+      <p class="eyebrow">{{ post.date | readableDate }}</p>
+      <h3>{{ post.data.title }}</h3>
+      <p>{{ post.data.summary }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>

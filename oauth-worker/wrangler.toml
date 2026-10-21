@@ -1,0 +1,11 @@
+name = "decap-oauth"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# Your site's origin; logins from anywhere else are refused
+ALLOWED_ORIGIN = "https://club-site.pages.dev"
+
+# Secrets (set with `npx wrangler secret put <NAME>`, never commit):
+#   GITHUB_CLIENT_ID
+#   GITHUB_CLIENT_SECRET
