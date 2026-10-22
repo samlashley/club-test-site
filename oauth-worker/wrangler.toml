@@ -4,7 +4,7 @@ compatibility_date = "2026-10-01"
 
 [vars]
 # Your site's origin; logins from anywhere else are refused
-ALLOWED_ORIGIN = "https://club-test-site.pages.dev"
+ALLOWED_ORIGIN = "https://club.lashleyhomelab.com"
 
 # Secrets (set with `npx wrangler secret put <NAME>`, never commit):
 #   GITHUB_CLIENT_ID
