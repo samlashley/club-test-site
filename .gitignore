@@ -3,4 +3,4 @@ _site/
 .wrangler/
 .dev.vars
 .DS_Store
-.claude/claude-settings-local.json
+.claude/
