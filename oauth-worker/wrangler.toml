@@ -1,0 +1,13 @@
+name = "decap-oauth"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Production origin for the published site. Must be set — an empty value
+# skips the origin check entirely. Must NOT be the old test domain
+# https://club.lashleyhomelab.com.
+ALLOWED_ORIGIN = "https://REPLACE-WITH-PRODUCTION-ORIGIN"
+
+# Secrets (set via `npx wrangler secret put <NAME>`, never committed):
+#   GITHUB_CLIENT_ID
+#   GITHUB_CLIENT_SECRET

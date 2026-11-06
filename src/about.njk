@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: About
+---
+<section class="section">
+  <div class="container">
+    <h1>About the Club</h1>
+    <p>{{ site.tagline }}</p>
+
+    <div class="card-grid">
+      {% for aboutPage in collections.aboutPages %}
+      <div class="card">
+        <h3><a href="{{ aboutPage.url }}">{{ aboutPage.data.title }}</a></h3>
+        {% if aboutPage.data.summary %}<p>{{ aboutPage.data.summary }}</p>{% endif %}
+        <a href="{{ aboutPage.url }}">Read more &rarr;</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

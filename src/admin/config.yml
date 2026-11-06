@@ -1,0 +1,130 @@
+backend:
+  name: github
+  repo: 3dWaffle544/TeamHandballProject # TODO: confirm this is the correct org/repo
+  branch: main
+  auth_scope: public_repo # use `repo` if the repo is private
+  base_url: https://REPLACE-WITH-OAUTH-WORKER-URL # TODO: set after deploying oauth-worker/
+
+local_backend: true
+
+media_folder: src/images/uploads
+public_folder: /images/uploads
+
+# Per-field cap on uploads (bytes). Decap's default media library only honors
+# max_file_size on individual fields, not as a top-level setting — see the
+# "Body" fields below, which is where photos actually get uploaded (via the
+# markdown editor's inline image button).
+collections:
+  - name: "news"
+    label: "News"
+    folder: "src/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        media_library:
+          config:
+            max_file_size: 15000000 # 15 MB, in bytes — comfortably under Cloudflare Pages' 25 MiB per-file limit
+
+  - name: "roster"
+    label: "Roster"
+    folder: "src/roster"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "#{{number}} {{name}} ({{position}}) — {{team}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - label: "Team"
+        name: "team"
+        widget: "select"
+        options: ["Men's", "Women's"]
+      - { label: "Number", name: "number", widget: "number", value_type: "int" }
+      - label: "Position"
+        name: "position"
+        widget: "select"
+        options:
+          - "Goalkeeper"
+          - "Left Wing"
+          - "Left Back"
+          - "Center Back"
+          - "Right Back"
+          - "Right Wing"
+          - "Pivot"
+      - label: "Year"
+        name: "year"
+        widget: "select"
+        options: ["Freshman", "Sophomore", "Junior", "Senior", "Grad"]
+      - { label: "Captain", name: "captain", widget: "boolean", default: false }
+
+  - name: "about"
+    label: "About Pages"
+    folder: "src/about"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    summary: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text", required: false, hint: "Short blurb shown on the About landing page card." }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", default: 10, hint: "Lower numbers show first on the About landing page. History/Coaches/Executive Board are 1/2/3." }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        media_library:
+          config:
+            max_file_size: 15000000 # 15 MB, in bytes — comfortably under Cloudflare Pages' 25 MiB per-file limit
+
+  - name: "settings"
+    label: "Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: "Team Info"
+        name: "site"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Team Name", name: "teamName", widget: "string" }
+          - { label: "Short Name", name: "shortName", widget: "string" }
+          - label: "Hero Image"
+            name: "heroImage"
+            widget: "image"
+            hint: "The large photo on the homepage banner. A wide, landscape action shot works best — it gets a dark overlay automatically so the white text stays readable."
+            media_library:
+              config:
+                max_file_size: 15000000 # 15 MB, in bytes — comfortably under Cloudflare Pages' 25 MiB per-file limit
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Practice Info", name: "practiceInfo", widget: "text" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "TikTok URL", name: "tiktok", widget: "string", required: false }
+          - { label: "X / Twitter URL", name: "twitter", widget: "string", required: false }
+          - { label: "Join Form URL", name: "joinFormUrl", widget: "string" }
+          - { label: "GroupMe URL", name: "groupMeUrl", widget: "string", required: false }
+          - { label: "GoFundMe URL", name: "gofundmeUrl", widget: "string", required: false }
+          - { label: "Calendar Embed URL", name: "calendarEmbedUrl", widget: "string" }
+          - { label: "Calendar Subscribe URL", name: "calendarSubscribeUrl", widget: "string" }
+
+      - label: "Results"
+        name: "results"
+        file: "src/_data/results.json"
+        fields:
+          - label: "Games"
+            name: "games"
+            widget: "list"
+            summary: "{{fields.date}} vs {{fields.opponent}} ({{fields.us}}-{{fields.them}})"
+            fields:
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { label: "Opponent", name: "opponent", widget: "string" }
+              - label: "Location"
+                name: "location"
+                widget: "select"
+                options: ["Home", "Away", "Neutral"]
+              - { label: "Us", name: "us", widget: "number", value_type: "int" }
+              - { label: "Them", name: "them", widget: "number", value_type: "int" }

@@ -1,0 +1,15 @@
+{
+  "name": "team-handball-at-uga",
+  "version": "1.0.0",
+  "description": "Team Handball at UGA — static site built with Eleventy, edited via Decap CMS",
+  "private": true,
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "cms": "npx decap-server"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^7.1.1"
+  }
+}

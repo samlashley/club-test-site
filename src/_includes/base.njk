@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · {{ site.teamName }}</title>
+  <meta name="description" content="{{ site.tagline }}">
+  <link rel="preload" href="/fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="/images/logo.png" alt="" class="brand-logo">
+        {{ site.shortName }}
+      </a>
+      <input type="checkbox" id="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">Menu</label>
+      <ul class="nav-list">
+        <li><a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="/about/" {% if page.url == "/about/" or (page.url and "/about/" in page.url and not ("/about/support-us/" in page.url)) %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="/schedule/" {% if page.url == "/schedule/" %}aria-current="page"{% endif %}>Schedule</a></li>
+        <li><a href="/roster/" {% if page.url == "/roster/" %}aria-current="page"{% endif %}>Roster</a></li>
+        <li><a href="/news/" {% if page.url == "/news/" or (page.url and "/news/" in page.url) %}aria-current="page"{% endif %}>News</a></li>
+        <li><a href="/join/" {% if page.url == "/join/" %}aria-current="page"{% endif %}>Join</a></li>
+        <li><a href="/about/support-us/" {% if page.url == "/about/support-us/" %}aria-current="page"{% endif %}>Support Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>{{ site.teamName }}</h4>
+          <p>{{ site.practiceInfo }}</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a></p>
+          {% if site.instagram %}<p><a href="{{ site.instagram }}">Instagram</a></p>{% endif %}
+          {% if site.tiktok %}<p><a href="{{ site.tiktok }}">TikTok</a></p>{% endif %}
+          {% if site.twitter %}<p><a href="{{ site.twitter }}">X / Twitter</a></p>{% endif %}
+        </div>
+        <div>
+          <h4>Links</h4>
+          <p>
+            <a href="/join/">Join the team</a><br>
+            <a href="/schedule/">Schedule</a>
+          </p>
+        </div>
+      </div>
+      <p class="footer-disclaimer">
+        Team Handball at UGA is a registered student organization. It is not an official entity of the University of Georgia and does not represent the University.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

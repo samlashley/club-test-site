@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: News
+---
+<section class="section">
+  <div class="container">
+    <h1>News</h1>
+    <div class="card-grid">
+      {% for post in collections.newsSorted %}
+      <div class="card news-card">
+        <p class="news-date"><time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.summary }}</p>
+        <a href="{{ post.url }}">Read more &rarr;</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

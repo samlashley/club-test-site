@@ -1,0 +1,36 @@
+---
+layout: base.njk
+title: Roster
+---
+<section class="section">
+  <div class="container">
+    <h1>Roster</h1>
+    <hr class="divider">
+
+    <div class="roster-group">
+      <h2>Men's Team</h2>
+      {% if collections.rosterMen.length %}
+      <ul class="card-grid" style="list-style: none; padding: 0;">
+        {% for player in collections.rosterMen %}
+          {% include "player-card.njk" %}
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>Roster coming soon.</p>
+      {% endif %}
+    </div>
+
+    <div class="roster-group">
+      <h2>Women's Team</h2>
+      {% if collections.rosterWomen.length %}
+      <ul class="card-grid" style="list-style: none; padding: 0;">
+        {% for player in collections.rosterWomen %}
+          {% include "player-card.njk" %}
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>Roster coming soon.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>

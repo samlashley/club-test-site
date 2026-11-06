@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Join
+---
+<section class="section">
+  <div class="container" style="max-width: 720px;">
+    <h1>Join the Team</h1>
+    <p>No experience needed — about half the team had never picked up a handball before their first practice. We'll teach you the rest on the court.</p>
+
+    <h3>1. Come to a practice</h3>
+    <p>{{ site.practiceInfo }}</p>
+
+    <h3>2. Fill out the interest form</h3>
+    <p>Let us know you're coming so we can watch for you at the door.</p>
+    <p><a class="btn btn-primary" href="{{ site.joinFormUrl }}">Fill out the interest form</a></p>
+    {% if site.groupMeUrl %}
+    <p>You can also join our <a href="{{ site.groupMeUrl }}">GroupMe</a> for day-to-day updates.</p>
+    {% endif %}
+
+    <h3>3. Questions?</h3>
+    <p>Email us at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a> any time.</p>
+
+    {% if site.gofundmeUrl %}
+    <h3>Support the team</h3>
+    <p>Tournament travel, lodging, and equipment are funded through membership dues, sponsorships, and fundraising. If you'd like to help, you can give through our <a href="{{ site.gofundmeUrl }}">GoFundMe</a>.</p>
+    {% endif %}
+  </div>
+</section>

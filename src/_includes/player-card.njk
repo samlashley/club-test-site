@@ -1,0 +1,9 @@
+<li class="player-card">
+  <span class="player-number">#{{ player.data.number }}</span>
+  <span>
+    <strong>{{ player.data.name }}</strong> — {{ player.data.position }}
+    <br>
+    <span class="result-meta">{{ player.data.year }}</span>
+    {% if player.data.captain %}<span class="player-tag">Captain</span>{% endif %}
+  </span>
+</li>

@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Schedule
+---
+<section class="section">
+  <div class="container">
+    <h1>Schedule</h1>
+    <p>Practices, games, and events all live on our Google Calendar below.</p>
+    <iframe class="calendar-embed" src="{{ site.calendarEmbedUrl }}" style="border: 0;" frameborder="0" scrolling="no"></iframe>
+    <p>
+      <a class="btn btn-primary" href="{{ site.calendarSubscribeUrl }}">Add to my calendar</a>
+    </p>
+
+    <h2>Practice Times</h2>
+    <p>{{ site.practiceInfo }}</p>
+  </div>
+</section>

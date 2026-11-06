@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<article class="section">
+  <div class="container" style="max-width: 720px;">
+    <p><a href="/news/">&larr; Back to news</a></p>
+    <h1>{{ title }}</h1>
+    <p class="news-date"><time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time></p>
+    <div class="post-body">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>
