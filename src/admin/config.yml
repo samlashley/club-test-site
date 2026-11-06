@@ -3,7 +3,7 @@ backend:
   repo: samlashley/club-test-site
   branch: main
   auth_scope: public_repo # use `repo` if the repo is private
-  base_url: https://REPLACE-WITH-OAUTH-WORKER-URL # TODO: set after deploying oauth-worker/
+  base_url: https://decap-oauth.samlashley42.workers.dev
 
 local_backend: true
 
