@@ -59,5 +59,3 @@ Set `ALLOWED_ORIGIN` in `oauth-worker/wrangler.toml` to the production site orig
 4. Set Worker secrets (`GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`) and `ALLOWED_ORIGIN`, then redeploy the Worker.
 5. Update `src/admin/config.yml` with the real `repo` and `base_url`.
 6. Push, then give officers Write access to the repo.
-
-See [CLAUDE.md](CLAUDE.md) for the full content model, branding rules, and remaining placeholders.
