@@ -1,8 +1,8 @@
 ---
-name: "Lourdes Calvo"
-team: "Women's"
-number: 1
-position: "Center Back"
-year: "Sophomore"
-captain: false
+name: Lourdes Calvo
+team: Women's
+number: 14
+position: Center Back
+year: Sophomore
+captain: true
 ---
