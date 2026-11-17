@@ -1,7 +1,7 @@
 ---
 name: Brandon Jones
 team: Men's
-number: 6
+number: 7
 position: Pivot
 year: Sophomore
 captain: false
