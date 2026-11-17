@@ -59,7 +59,7 @@ collections:
       - label: "Year"
         name: "year"
         widget: "select"
-        options: ["Freshman", "Sophomore", "Junior", "Senior", "Grad"]
+        options: ["Freshman", "Sophomore", "Junior", "Senior", "Grad","International Student"]
       - { label: "Captain", name: "captain", widget: "boolean", default: false }
 
   - name: "about"
