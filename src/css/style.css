@@ -111,6 +111,18 @@ p { margin: 0 0 1rem; }
   font-size: 1.5rem;
   color: var(--color-white);
   text-decoration: none;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 36px;
+  overflow: hidden;
+}
+.brand-text {
+  white-space: nowrap;
+  line-height: 36px;
+}
+  
 }
 .brand-logo {
   display: block;
@@ -142,6 +154,7 @@ p { margin: 0 0 1rem; }
 /* CSS-only mobile menu */
 .nav-toggle-label {
   display: none;
+  flex-shrink: 0;
   color: var(--color-white);
   cursor: pointer;
   font-weight: 600;
