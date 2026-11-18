@@ -1,8 +1,9 @@
 {
-  "joinFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd1yXOoFpMsE5WhzL1lvg-18Ps1Wrq691rfwKU-kyokQts97g/viewform",
+  "logo": "/images/logo.png",
+  "joinFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd1yXOoFpMsE5WhzL1Ivg-18Ps1Wrq691rfwKU-kyokQts97g/viewform",
   "heroImage": "/images/uploads/hero-action.jpg",
   "calendarSubscribeUrl": "https://calendar.google.com/calendar/u/0?cid=186439e1013585cf47751279a07549aeb4ce701fd0decc4f34b91e43404f6054@group.calendar.google.com",
-  "shortName": "Handball at UGA",
+  "shortName": "Team Handball at UGA",
   "teamName": "Team Handball at UGA",
   "practiceInfo": "Fridays 5:30–7:30 PM, Sundays 6:00–8:00 PM, and Mondays 7:30–9:30 PM (starting October 26) at the Ramsey Student Center, Gym West. No experience needed — we'll teach you everything on the court.",
   "gofundmeUrl": "https://www.gofundme.com/f/support-uga-team-handballs-journey-gwm6a",

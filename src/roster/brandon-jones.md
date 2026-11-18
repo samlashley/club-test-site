@@ -1,8 +1,8 @@
 ---
-name: "Brandon Jones"
-team: "Men's"
-number: 6
-position: "Pivot"
-year: "Junior"
+name: Brandon Jones
+team: Men's
+number: 7
+position: Pivot
+year: Sophomore
 captain: false
 ---
