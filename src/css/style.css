@@ -97,6 +97,7 @@ p { margin: 0 0 1rem; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 1rem;
   max-width: none;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -122,8 +123,7 @@ p { margin: 0 0 1rem; }
   white-space: nowrap;
   line-height: 36px;
 }
-  
-}
+
 .brand-logo {
   display: block;
   width: 36px;
